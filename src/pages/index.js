@@ -1,4 +1,9 @@
 import React from "react"
+import { Provider } from "react-redux"
+import { applyMiddleware, createStore } from "redux"
+import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 // import Media from "react-media"
 // import { Carousel, Box, TextInput, Image, Text, Heading, Button } from "grommet"
 
@@ -84,10 +89,14 @@ const IndexPage = () => (
   </Media>
 )*/
 
+const store = createStore(() => {}, {}, composeWithDevTools(applyMiddleware(thunk, logger)))
+
 const Page = () => (
-  <Layout>
-    <h1>Hello World!</h1>
-  </Layout>
+  <Provider store={store}>
+    <Layout>
+      <h1>Hello World!</h1>
+    </Layout>
+  </Provider>
 )
 
 export default Page
