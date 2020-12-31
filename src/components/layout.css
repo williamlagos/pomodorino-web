@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*article,
+article,
 aside,
 details,
 figcaption,
@@ -620,4 +620,3 @@ pre tt:after {
     font-size: 100%;
   }
 }
-*/

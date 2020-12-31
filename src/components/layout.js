@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Grommet, grommet } from "grommet"
 
-// import "./layout.css"
+import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
