@@ -8,14 +8,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Grommet, grommet } from "grommet"
+import Header from "./header"
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
-  return (
-    <Grommet theme={grommet}> {children} </Grommet>
-  )
-}
+const Layout = ({ children }) => (
+  <Grommet theme={grommet}>
+    <Header siteTitle="Pomodorino"/>
+    {children} 
+  </Grommet>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
