@@ -8,11 +8,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Grommet, grommet } from "grommet"
-import Header from "./header"
+import Header from "./Header"
 
 import "./layout.css"
 
-const Layout = ({ children }) => (
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+const Layout = ({ children } : LayoutProps) => (
   <Grommet theme={grommet}>
     <Header siteTitle="Pomodorino"/>
     {children} 

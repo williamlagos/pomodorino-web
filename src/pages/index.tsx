@@ -6,11 +6,11 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 // import { Carousel, Box, TextInput, Image, Text, Heading, Button } from "grommet"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
-const store = createStore(() => {}, {}, composeWithDevTools(applyMiddleware(thunk, logger)))
+const store = createStore(() => {}, composeWithDevTools(applyMiddleware(thunk, logger)))
 
-const Page = (props) => {
+const Page = (props: any) => {
   const [date, setDate] = useState(new Date())
   useEffect(() => {
     setInterval(
