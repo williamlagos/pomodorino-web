@@ -1,2 +1,2 @@
-# react-boilerplate
-React application sample to start with
+# Pomodorino Web
+Pomodoro Timer web application written in React
