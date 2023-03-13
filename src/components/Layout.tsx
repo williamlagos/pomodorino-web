@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Grommet, grommet } from "grommet"
+import { Main, Grommet, grommet } from "grommet"
 import Header from "./Header"
 
 import "./layout.css"
@@ -19,7 +19,9 @@ interface LayoutProps {
 const Layout = ({ children } : LayoutProps) => (
   <Grommet theme={grommet}>
     <Header siteTitle="Pomodorino"/>
-    {children} 
+    <Main style={{ textAlign: "center" }}>
+      {children} 
+    </Main>
   </Grommet>
 )
 
