@@ -6,7 +6,7 @@
     "configurations": [
         {
             "command": "npm run dev",
-            "name": "Run npm run dev",
+            "name": "Run Development Environment",
             "request": "launch",
             "type": "node-terminal"
         },
@@ -16,7 +16,12 @@
             "reAttach": true,
             "name": "Debug in Firefox",
             "url": "http://localhost:5173/",
-            "webRoot": "${workspaceFolder}/src/",
+            "pathMappings": [
+                {
+                    "url": "http://localhost:5173/src",
+                    "path": "${workspaceFolder}/src"
+                }
+            ]
         }
     ]
 }
