@@ -5,8 +5,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "command": "npm run dev",
+            "name": "Run npm run dev",
             "request": "launch",
             "type": "node-terminal"
         },
@@ -15,7 +15,7 @@
             "request": "launch",
             "reAttach": true,
             "name": "Debug in Firefox",
-            "url": "http://localhost:8000/",
+            "url": "http://localhost:5173/",
             "webRoot": "${workspaceFolder}/src/",
         }
     ]
