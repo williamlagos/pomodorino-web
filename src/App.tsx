@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import dayjs from 'dayjs';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(0)
+  const [time, setTime] = useState<Date>(new Date());
+
+  useEffect(() => {
+    setInterval(() => {
+      setTime(new Date());
+    }, 1000)
+  });
 
   return (
     <>
@@ -16,7 +24,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Pomodorino Timer</h1>
+      <p>Time is {dayjs(time).format("HH:mm:ss")}</p>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
