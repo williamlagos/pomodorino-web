@@ -2,7 +2,7 @@ import { type ReactElement, useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import './App.css'
 
-const App = (): ReactElement<any, any> => {
+const App = (): ReactElement => {
   const [time, setTime] = useState<Date>(new Date())
 
   useEffect(() => {
