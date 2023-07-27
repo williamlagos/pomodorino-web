@@ -3,23 +3,36 @@ import d from 'dayjs'
 import './App.css'
 
 const App = (): ReactElement => {
-  const [startTime] = useState<Date>(new Date())
-  const [currentTime, setCurrentTime] = useState<Date>(new Date())
+  const [startTime, setStartTime] = useState<Date>(new Date())
+  const [elapsedTime, setElapsedTime] = useState<number>(0)
+  const [counting, toggleCounting] = useState<boolean>(true)
 
   useEffect(() => {
-    setInterval(() => {
-      setCurrentTime(new Date())
+    const intervalId = setInterval(() => {
+      if (counting) {
+        setElapsedTime(d(new Date()).diff(d(startTime), 's'))
+      } else {
+        setStartTime(new Date())
+      }
     }, 1000)
-  }, [])
 
-  const currentFormattedTime = d(currentTime).format('HH:mm:ss')
-  const formattedTimeElapsed = d(currentTime).diff(d(startTime), 's')
+    return () => { clearInterval(intervalId) }
+  }, [counting, startTime])
+
+  // TODO: Remove later, using for time and speed reference
+  const currentFormattedTime = d(new Date()).format('HH:mm:ss')
 
   return (
     <>
       <h1>Pomodorino Timer</h1>
       <p>Time is {currentFormattedTime}</p>
-      <p>Elapsed time is {formattedTimeElapsed}</p>
+      <p>{counting ? `Elapsed time is ${elapsedTime}` : 'Timer is stopped'}</p>
+      <button onClick={() => {
+        toggleCounting(!counting)
+        setElapsedTime(0)
+      }}>
+        Toggle
+      </button>
     </>
   )
 }
