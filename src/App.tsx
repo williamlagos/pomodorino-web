@@ -13,7 +13,7 @@ const App = (): ReactElement => {
   }, [])
 
   const currentFormattedTime = d(currentTime).format('HH:mm:ss')
-  const formattedTimeElapsed = d(d(currentTime).diff(d(startTime))).format('mm:ss')
+  const formattedTimeElapsed = d(currentTime).diff(d(startTime), 's')
 
   return (
     <>
