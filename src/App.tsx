@@ -1,20 +1,25 @@
 import { type ReactElement, useEffect, useState } from 'react'
-import dayjs from 'dayjs'
+import d from 'dayjs'
 import './App.css'
 
 const App = (): ReactElement => {
-  const [time, setTime] = useState<Date>(new Date())
+  const [startTime] = useState<Date>(new Date())
+  const [currentTime, setCurrentTime] = useState<Date>(new Date())
 
   useEffect(() => {
     setInterval(() => {
-      setTime(new Date())
+      setCurrentTime(new Date())
     }, 1000)
   }, [])
+
+  const currentFormattedTime = d(currentTime).format('HH:mm:ss')
+  const formattedTimeElapsed = d(d(currentTime).diff(d(startTime))).format('mm:ss')
 
   return (
     <>
       <h1>Pomodorino Timer</h1>
-      <p>Time is {dayjs(time).format('HH:mm:ss')}</p>
+      <p>Time is {currentFormattedTime}</p>
+      <p>Elapsed time is {formattedTimeElapsed}</p>
     </>
   )
 }
