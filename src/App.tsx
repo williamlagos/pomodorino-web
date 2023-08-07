@@ -1,6 +1,6 @@
 import { type ReactElement, useEffect, useState } from 'react'
+import Clock from './Clock'
 import d from 'dayjs'
-import './App.css'
 
 const App = (): ReactElement => {
   const [startTime, setStartTime] = useState<Date>(new Date())
@@ -23,17 +23,13 @@ const App = (): ReactElement => {
   const currentFormattedTime = d(new Date()).format('HH:mm:ss')
 
   return (
-    <>
-      <h1>Pomodorino Timer</h1>
-      <p>Time is {currentFormattedTime}</p>
-      <p>{counting ? `Elapsed time is ${elapsedTime}` : 'Timer is stopped'}</p>
-      <button onClick={() => {
-        toggleCounting(!counting)
-        setElapsedTime(0)
-      }}>
-        Toggle
-      </button>
-    </>
+    <Clock
+      counting={counting}
+      elapsedTime={elapsedTime}
+      setElapsedTime={setElapsedTime}
+      toggleCounting={toggleCounting}
+      currentFormattedTime={currentFormattedTime}
+    />
   )
 }
 
