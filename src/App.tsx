@@ -1,6 +1,7 @@
 import { type ReactElement, useEffect, useState } from 'react'
 import Clock from './Clock'
 import d from 'dayjs'
+import './App.css'
 
 const App = (): ReactElement => {
   const [startTime, setStartTime] = useState<Date>(new Date())
